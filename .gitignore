@@ -1,0 +1,20 @@
+# Logs (Airflow, Docker, general)
+logs/
+*.log
+airflow-*.log
+airflow-*.out
+airflow-*.err
+airflow-*.pid
+/opt/airflow/logs/
+
+# Data (never commit)
+data/
+*.csv
+*.parquet
+landing/
+formatted/
+
+# Terraform secrets
+terraform/*.tfvars
+terraform/*secrets*.tfvars
+terraform/terraform.tfvars
