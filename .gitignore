@@ -6,6 +6,8 @@ airflow-*.out
 airflow-*.err
 airflow-*.pid
 /opt/airflow/logs/
+__pycache__/
+*.pyc
 
 # Data (never commit)
 data/

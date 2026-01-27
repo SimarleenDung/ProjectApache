@@ -1,0 +1,17 @@
+dbt_project:
+  target: dev
+  outputs:
+    dev:
+      type: snowflake
+      account: CAHTFIW-JB32837
+
+      user: SIMARLEENDUNGAIRFLOW
+      password: GodisGreat2807
+
+      role: ACCOUNTADMIN
+      database: AIRFLOW_DB
+      warehouse: COMPUTE_WH
+      schema: STAGE
+
+      threads: 5
+      client_session_keep_alive: false

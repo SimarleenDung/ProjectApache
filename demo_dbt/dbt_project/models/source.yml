@@ -1,0 +1,9 @@
+
+version: 2
+
+sources:
+  - name: trialsource
+    schema: DBT_SDUNG
+    database: AIRFLOW_DB
+    tables:
+      - name: CUSTOMERS_SCD_TEST

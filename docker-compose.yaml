@@ -58,7 +58,7 @@ x-airflow-common:
     AIRFLOW__CORE__DAGS_ARE_PAUSED_AT_CREATION: 'true'
     AIRFLOW__CORE__LOAD_EXAMPLES: 'true'
     AIRFLOW__API__AUTH_BACKENDS: 'airflow.api.auth.backend.basic_auth'
-    _PIP_ADDITIONAL_REQUIREMENTS: ${_PIP_ADDITIONAL_REQUIREMENTS:- apache-airflow apache-airflow-providers-snowflake apache-airflow-providers-dbt-cloud apache-airflow-providers-dbt-cloud[http] snowflake-connector-python pandas pyarrow}
+    _PIP_ADDITIONAL_REQUIREMENTS: ${_PIP_ADDITIONAL_REQUIREMENTS:- apache-airflow apache-airflow-providers-snowflake apache-airflow-providers-dbt-cloud apache-airflow-providers-dbt-cloud[http] snowflake-connector-python pandas pyarrow dbt-core dbt-snowflake}
   volumes:
     - ./dags:/opt/airflow/dags
     - ./logs:/opt/airflow/logs
@@ -66,7 +66,7 @@ x-airflow-common:
     - ./sql_script:/opt/airflow/sql_script
     - ./data:/opt/airflow/data
     - ./python_script:/opt/airflow/python_script
-    - ./demo_dbt:/opt/airflow/demo_dbt
+    - ./demo_dbt:/opt/airflow/demo_dbt/dbt_project
     - ./packages:/opt/airflow/packages
     - ./app:/opt/airflow/app
     - D:/ProjectApache/Data:/opt/airflow/data_external
