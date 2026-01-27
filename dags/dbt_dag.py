@@ -12,9 +12,7 @@ with DAG(
     run_one_model = BashOperator(
         task_id="run_my_model",
         bash_command="""
-        dbt run \
-          --project-dir /opt/airflow/demo_dbt/dbt_project \
-          --profiles-dir /opt/airflow/demo_dbt/dbt_project \
-          --select trialmodel
-        """
+        cd /opt/airflow/demo_dbt/dbt_project && dbt run \
+        --select trialmodel \
+        --profiles-dir /opt/airflow/demo_dbt/dbt_project"""
     )

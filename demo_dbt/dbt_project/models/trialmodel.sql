@@ -1,6 +1,6 @@
 {{ config(
     materialized = 'table',
-    schema = 'STAGE',
+    schema = 'DBT_SDUNG',
     database = 'AIRFLOW_DB'
 ) }}
 

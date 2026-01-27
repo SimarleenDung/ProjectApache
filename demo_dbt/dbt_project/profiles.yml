@@ -4,7 +4,6 @@ dbt_project:
     dev:
       type: snowflake
       account: CAHTFIW-JB32837
-
       user: SIMARLEENDUNGAIRFLOW
       password: GodisGreat2807
 
