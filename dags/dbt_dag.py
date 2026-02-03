@@ -31,11 +31,12 @@ def create_dbt_command(selected_customer=None):
         "--profiles-dir /opt/airflow/demo_dbt/dbt_project"
     )
 
-    if selected_customer and selected_customer != "None":
-        vars_json = json.dumps(
-            {"selected_customer": selected_customer}
-        ).replace('"', '\\"')
-        base_cmd += f' --vars "{vars_json}"'
+    if selected_customer:  # First check: Does it have a value?
+        if selected_customer != "None":  # Second check: Is it not the string "None"?
+            vars_json = json.dumps(
+                {"selected_customer": selected_customer}
+            ).replace('"', '\\"')
+            base_cmd += f' --vars "{vars_json}"'
 
     return base_cmd
 
