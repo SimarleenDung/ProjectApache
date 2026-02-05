@@ -25,9 +25,7 @@ filtered_data as (
     select *
     from source_data
     where 1=1
-    {% if selected_customer not in ['all', 'None', none] %}
-        and email = '{{ selected_customer }}'
-    {% endif %}
+    {{ build_email_filter(selected_customer) }}
 )
 
 select *
