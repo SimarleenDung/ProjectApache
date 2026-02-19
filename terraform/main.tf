@@ -9,6 +9,7 @@ provider "snowflake" {
   user              = data.vault_kv_secret_v2.snowflake.data["user"]
   password          = data.vault_kv_secret_v2.snowflake.data["password"]
   role              = data.vault_kv_secret_v2.snowflake.data["role"]
+  preview_features_enabled  = ["snowflake_table_resource"]
 }
  
 resource "snowflake_database" "example_db" {

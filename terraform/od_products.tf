@@ -47,20 +47,6 @@ resource "snowflake_table" "OD_PRODUCTS" {
     type = "NUMBER(6,2)"
   }
 
-  column {
-    name = "ELT_BY"
-    type = "VARCHAR(255)"
-  }
-
-  column {
-    name = "ELT_TS"
-    type = "TIMESTAMP_NTZ(3)"
-  }
-
-  column {
-    name = "FILE_NAME"
-    type = "VARCHAR(255)"
-  }
 
 
 }

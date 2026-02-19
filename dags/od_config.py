@@ -3,7 +3,7 @@ GCS_BUCKET_NAME = "olist_project_rs"
 GCS_FILE_TABLE_CONFIG = [
     {
         "gcs_path": "landing/olist_products_dataset.csv",
-        "table": "PRODUCTS_OD",
+        "table": "OD_PRODUCTS",
         "merge_key": "product_id",
         "columns": [
             "product_id",
@@ -19,7 +19,7 @@ GCS_FILE_TABLE_CONFIG = [
     },
     {
         "gcs_path": "landing/olist_sellers_dataset.csv",
-        "table": "SELLERS_OD",
+        "table": "OD_SELLERS",
         "merge_key": "seller_id",
         "columns": [
             "seller_id",

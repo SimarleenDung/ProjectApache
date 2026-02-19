@@ -11,7 +11,7 @@ from airflow.models import Variable
 from airflow.operators.python import PythonOperator
 from datetime import datetime, timedelta
 
-from config import GCS_BUCKET_NAME, GCS_FILE_TABLE_CONFIG
+from od_config import GCS_BUCKET_NAME, GCS_FILE_TABLE_CONFIG
 
 log = logging.getLogger(__name__)
 
@@ -109,11 +109,7 @@ def upsert_to_snowflake(
         USING (
             SELECT {staged_select}
             FROM {stage_name}
-            (FILE_FORMAT => (
-                TYPE                         = 'CSV'
-                FIELD_OPTIONALLY_ENCLOSED_BY = '"'
-                SKIP_HEADER                  = 1
-            ))
+            (FILE_FORMAT => 'CSV_FORMAT')
         ) AS staged
         ON target.{merge_key} = staged.{merge_key}
         WHEN MATCHED THEN
