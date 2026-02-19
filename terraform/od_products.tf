@@ -1,0 +1,66 @@
+resource "snowflake_table" "OD_PRODUCTS" {
+  database = var.snowflake_database
+  schema   = var.snowflake_schema
+  name     = "OD_PRODUCTS"
+
+  column {
+    name = "PRODUCT_ID"
+    type = "VARCHAR(16777216)"
+  }
+
+  column {
+    name = "PRODUCT_CATEGORY_NAME"
+    type = "VARCHAR(16777216)"
+  }
+
+  column {
+    name = "PRODUCT_NAME_LENGHT"
+    type = "NUMBER(5,0)"
+  }
+
+  column {
+    name = "PRODUCT_DESCRIPTION_LENGHT"
+    type = "NUMBER(6,0)"
+  }
+
+  column {
+    name = "PRODUCT_PHOTOS_QTY"
+    type = "NUMBER(3,0)"
+  }
+
+  column {
+    name = "PRODUCT_WEIGHT_G"
+    type = "NUMBER(8,0)"
+  }
+
+ column {
+    name = "PRODUCT_LENGTH_CM"
+    type = "NUMBER(6,2)"
+  }
+
+   column {
+    name = "PRODUCT_HEIGHT_CM"
+    type = "NUMBER(6,2)"
+  }
+   column {
+    name = "PRODUCT_WIDTH_CM"
+    type = "NUMBER(6,2)"
+  }
+
+  column {
+    name = "ELT_BY"
+    type = "VARCHAR(255)"
+  }
+
+  column {
+    name = "ELT_TS"
+    type = "TIMESTAMP_NTZ(3)"
+  }
+
+  column {
+    name = "FILE_NAME"
+    type = "VARCHAR(255)"
+  }
+
+
+}

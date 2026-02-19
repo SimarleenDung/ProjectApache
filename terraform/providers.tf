@@ -2,9 +2,11 @@ terraform {
   required_providers {
     vault = {
       source  = "hashicorp/vault"
+      version = "~> 5.0"
     }
     snowflake = {
       source  = "snowflake-labs/snowflake"
+      version = "~> 1.0"
     }
   }
 }
