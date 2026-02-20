@@ -11,46 +11,49 @@ from airflow.models import Variable
 from airflow.operators.python import PythonOperator
 from datetime import datetime, timedelta
 
+from utils.vault_utils import (get_snowflake_creds_from_vault, get_gcp_sa_from_vault)
+
 from od_config import GCS_BUCKET_NAME, GCS_FILE_TABLE_CONFIG
 
 log = logging.getLogger(__name__)
 
 
-def _get_vault_client() -> hvac.Client:
-    vault_addr = Variable.get("VAULT_ADDR", default_var="http://vault:8200")
-    token      = Variable.get("VAULT_TOKEN")
-    return hvac.Client(url=vault_addr, token=token)
+# def _get_vault_client() -> hvac.Client:
+#     vault_addr = Variable.get("VAULT_ADDR", default_var="http://vault:8200")
+#     token      = Variable.get("VAULT_TOKEN")
+#     return hvac.Client(url=vault_addr, token=token)
 
 
-def get_snowflake_creds_from_vault() -> dict:
-    client = _get_vault_client()
-    secret = client.secrets.kv.v2.read_secret_version(
-        mount_point="snowflake-secrets",
-        path="snowflake-secrets",
-    )
-    data = secret["data"]["data"]
+
+# def get_snowflake_creds_from_vault() -> dict:
+#     client = _get_vault_client()
+#     secret = client.secrets.kv.v2.read_secret_version(
+#         mount_point="snowflake-secrets",
+#         path="snowflake-secrets",
+#     )
+#     data = secret["data"]["data"]
     
-    # Combine organization and account for Python connector
-    account = f"{data['organization_name']}-{data['account_name']}"
+#     # Combine organization and account for Python connector
+#     account = f"{data['organization_name']}-{data['account_name']}"
     
-    return {
-        "account":   account,  # "cahtfiw-jb32837"
-        "user":      data["user"],
-        "password":  data["password"],
-        "warehouse": data["warehouse"],
-        "database":  data["database"],
-        "schema":    data["schema"],
-        "role":      data["role"],
-    }
+#     return {
+#         "account":   account,  # "cahtfiw-jb32837"
+#         "user":      data["user"],
+#         "password":  data["password"],
+#         "warehouse": data["warehouse"],
+#         "database":  data["database"],
+#         "schema":    data["schema"],
+#         "role":      data["role"],
+#     }
 
 
-def get_gcp_sa_from_vault() -> dict:
-    client = _get_vault_client()
-    secret = client.secrets.kv.v2.read_secret_version(
-        mount_point="gcp-secrets",
-        path="gcp-secrets",
-    )
-    return secret["data"]["data"]
+# def get_gcp_sa_from_vault() -> dict:
+#     client = _get_vault_client()
+#     secret = client.secrets.kv.v2.read_secret_version(
+#         mount_point="gcp-secrets",
+#         path="gcp-secrets",
+#     )
+#     return secret["data"]["data"]
 
 
 def read_csv_from_gcs(bucket_name: str, gcs_path: str) -> pd.DataFrame:
