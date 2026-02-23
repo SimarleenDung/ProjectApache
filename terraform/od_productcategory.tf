@@ -10,7 +10,7 @@ resource "snowflake_table" "PRODUCT_CATEGORY_OD" {
 
   column {
     name = "PRODUCT_CATEGORY_NAME_ENGLISH"
-    type = "NUMBER(5,0)"
+    type = "VARCHAR(16777216)"
   }
 
 }

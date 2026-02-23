@@ -3,7 +3,7 @@ GCS_BUCKET_NAME = "olist_project_rs"
 GCS_FILE_TABLE_CONFIG = [
     {
         "gcs_path": "landing/olist_products_dataset.csv",
-        "table": "OD_PRODUCTS",
+        "table": "PRODUCTS_OD",
         "merge_key": "product_id",
         "columns": [
             "product_id",
@@ -19,7 +19,7 @@ GCS_FILE_TABLE_CONFIG = [
     },
     {
         "gcs_path": "landing/olist_sellers_dataset.csv",
-        "table": "OD_SELLERS",
+        "table": "SELLERS_OD",
         "merge_key": "seller_id",
         "columns": [
             "seller_id",
@@ -30,7 +30,7 @@ GCS_FILE_TABLE_CONFIG = [
     },
     {
     "gcs_path": "landing/olist_customers_dataset.csv",
-    "table": "OD_CUSTOMER",
+    "table": "CUSTOMER_OD",
     "merge_key": "customer_id",
     "columns": [
         "customer_id",
@@ -42,7 +42,7 @@ GCS_FILE_TABLE_CONFIG = [
     },
     {
         "gcs_path": "landing/olist_orders_dataset.csv",
-        "table": "OD_ORDERS",
+        "table": "ORDERS_OD",
         "merge_key": "order_id",
         "columns": [
             "order_id",
@@ -57,7 +57,7 @@ GCS_FILE_TABLE_CONFIG = [
     },
     {
         "gcs_path": "landing/olist_order_items_dataset.csv",
-        "table": "OD_ORDERITEM",
+        "table": "ORDERITEM_OD",
         "merge_key": "order_id",  # composite in reality (order_id + order_item_id)
         "columns": [
             "order_id",

@@ -1,7 +1,7 @@
-resource "snowflake_table" "OD_ORDERS" {
+resource "snowflake_table" "ORDERS_OD" {
   database = var.snowflake_database
   schema   = var.snowflake_schema
-  name     = "OD_ORDERS"
+  name     = "ORDERS_OD"
 
   column {
     name = "ORDER_ID"
